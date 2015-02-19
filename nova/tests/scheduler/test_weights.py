@@ -36,9 +36,10 @@ class TestWeighedHost(test.NoDBTestCase):
     def test_all_weighers(self):
         classes = weights.all_weighers()
         class_names = [cls.__name__ for cls in classes]
-        self.assertEqual(len(classes), 2)
+        self.assertEqual(len(classes), 3)
         self.assertIn('RAMWeigher', class_names)
         self.assertIn('MetricsWeigher', class_names)
+        self.assertIn('SameHostResizeWeigher', class_names)
 
 
 class RamWeigherTestCase(test.NoDBTestCase):
